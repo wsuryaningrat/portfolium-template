@@ -127,6 +127,7 @@ async function setupTemplate() {
         log('🗑️  Removed Indonesian language file', 'yellow');
       }
       log('✅ English language file kept', 'green');
+      log('ℹ️  Language switcher will show but only English content available', 'blue');
     } else if (useIndonesian && !useEnglish) {
       // Indonesian only - remove English file
       if (fs.existsSync(enPath)) {
@@ -134,9 +135,11 @@ async function setupTemplate() {
         log('🗑️  Removed English language file', 'yellow');
       }
       log('✅ Indonesian language file kept', 'green');
+      log('ℹ️  Language switcher will show but only Indonesian content available', 'blue');
     } else {
       // Both languages - keep both files
       log('✅ Both language files kept', 'green');
+      log('ℹ️  Language switcher will work between English and Indonesian', 'blue');
     }
 
     // Update package.json

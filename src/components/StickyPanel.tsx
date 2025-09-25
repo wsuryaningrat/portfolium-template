@@ -78,36 +78,43 @@ export default function StickyPanel({ isDark, toggleTheme }: StickyPanelProps) {
           </Tooltip>
         ))}
 
-        {/* Language Switcher - Only show if multiple languages available */}
-        {availableLanguages.length > 1 && (
-          <>
-            {/* Separator */}
-            <div className="w-px h-5 bg-gray-300 dark:bg-gray-600"></div>
+        {/* Language Switcher - Always show, but only switch between available languages */}
+        {/* Separator */}
+        <div className="w-px h-5 bg-gray-300 dark:bg-gray-600"></div>
 
-            {/* Language Switcher */}
-            <Tooltip
-              content={language === 'en' ? 'Switch to Indonesian' : 'Switch to English'}
-              show={hoveredItem === 'language'}
+        {/* Language Switcher */}
+        <Tooltip
+          content={availableLanguages.length > 1 
+            ? (language === 'en' ? 'Switch to Indonesian' : 'Switch to English')
+            : 'Only one language available'
+          }
+          show={hoveredItem === 'language'}
+        >
+          <div
+            onMouseEnter={() => setHoveredItem('language')}
+            onMouseLeave={() => setHoveredItem(null)}
+          >
+            <motion.button
+              onClick={() => {
+                if (availableLanguages.length > 1) {
+                  setLanguage(language === 'en' ? 'id' : 'en');
+                }
+              }}
+              className={`w-8 h-8 rounded-full flex items-center justify-center transition-all duration-200 ${
+                availableLanguages.length > 1
+                  ? 'text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white hover:bg-gray-100 dark:hover:bg-gray-800'
+                  : 'text-gray-400 dark:text-gray-600 cursor-not-allowed'
+              }`}
+              whileHover={availableLanguages.length > 1 ? { scale: 1.08 } : {}}
+              whileTap={availableLanguages.length > 1 ? { scale: 0.95 } : {}}
+              style={{ willChange: 'transform' }}
             >
-              <div
-                onMouseEnter={() => setHoveredItem('language')}
-                onMouseLeave={() => setHoveredItem(null)}
-              >
-                <motion.button
-                  onClick={() => setLanguage(language === 'en' ? 'id' : 'en')}
-                  className="w-8 h-8 rounded-full flex items-center justify-center text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white hover:bg-gray-100 dark:hover:bg-gray-800 transition-all duration-200"
-                  whileHover={{ scale: 1.08 }}
-                  whileTap={{ scale: 0.95 }}
-                  style={{ willChange: 'transform' }}
-                >
-                  <span className="text-xs font-bold">
-                    {language === 'en' ? 'EN' : 'ID'}
-                  </span>
-                </motion.button>
-              </div>
-            </Tooltip>
-          </>
-        )}
+              <span className="text-xs font-bold">
+                {language === 'en' ? 'EN' : 'ID'}
+              </span>
+            </motion.button>
+          </div>
+        </Tooltip>
 
         {/* Theme Toggle */}
         <Tooltip
