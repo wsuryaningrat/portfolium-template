@@ -1,6 +1,20 @@
 import { createContext, useContext, useState, ReactNode } from 'react';
-import enTranslations from '../data/en.json';
-import idTranslations from '../data/id.json';
+
+// Try to import language files, handle cases where they might not exist
+let enTranslations: any = {};
+let idTranslations: any = {};
+
+try {
+  enTranslations = require('../data/en.json');
+} catch (error) {
+  console.log('English translations not found');
+}
+
+try {
+  idTranslations = require('../data/id.json');
+} catch (error) {
+  console.log('Indonesian translations not found');
+}
 
 export type Language = 'en' | 'id';
 
@@ -9,6 +23,7 @@ interface LanguageContextType {
   setLanguage: (lang: Language) => void;
   t: (key: string) => any;
   isLoading: boolean;
+  availableLanguages: Language[];
 }
 
 const LanguageContext = createContext<LanguageContextType | undefined>(undefined);
@@ -17,21 +32,35 @@ interface LanguageProviderProps {
   children: ReactNode;
 }
 
+// Determine available languages based on what files exist
+const availableLanguages: Language[] = [];
+if (Object.keys(enTranslations).length > 0) availableLanguages.push('en');
+if (Object.keys(idTranslations).length > 0) availableLanguages.push('id');
+
 const translations = {
   en: enTranslations,
   id: idTranslations
 };
 
 export function LanguageProvider({ children }: LanguageProviderProps) {
-  const [language, setLanguageState] = useState<Language>(() => {
-    const saved = localStorage.getItem('language');
-    return (saved as Language) || 'en';
-  });
+  // Determine default language based on available languages
+  const getDefaultLanguage = (): Language => {
+    const saved = localStorage.getItem('language') as Language;
+    if (saved && availableLanguages.includes(saved)) {
+      return saved;
+    }
+    // Return first available language, or 'en' as fallback
+    return availableLanguages.length > 0 ? availableLanguages[0] : 'en';
+  };
+
+  const [language, setLanguageState] = useState<Language>(getDefaultLanguage);
   const [isLoading] = useState(false);
 
   const setLanguage = (lang: Language) => {
-    setLanguageState(lang);
-    localStorage.setItem('language', lang);
+    if (availableLanguages.includes(lang)) {
+      setLanguageState(lang);
+      localStorage.setItem('language', lang);
+    }
   };
 
   const t = (key: string): any => {
@@ -56,7 +85,8 @@ export function LanguageProvider({ children }: LanguageProviderProps) {
     language,
     setLanguage,
     t,
-    isLoading
+    isLoading,
+    availableLanguages
   };
 
   return (

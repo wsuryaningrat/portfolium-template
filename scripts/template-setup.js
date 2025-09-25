@@ -60,6 +60,36 @@ async function setupTemplate() {
     const github = await askQuestion('What\'s your GitHub username? ');
     const linkedin = await askQuestion('What\'s your LinkedIn username? ');
     const website = await askQuestion('What\'s your website URL? ');
+    
+    // Language selection
+    log('\n🌐 Language Configuration', 'cyan');
+    const languageChoice = await askQuestion('Choose language support:\n1. English only\n2. Indonesian only\n3. Both languages\nEnter choice (1-3): ');
+    
+    let useEnglish = false;
+    let useIndonesian = false;
+    
+    switch(languageChoice.trim()) {
+      case '1':
+        useEnglish = true;
+        useIndonesian = false;
+        log('✅ English only selected', 'green');
+        break;
+      case '2':
+        useEnglish = false;
+        useIndonesian = true;
+        log('✅ Indonesian only selected', 'green');
+        break;
+      case '3':
+        useEnglish = true;
+        useIndonesian = true;
+        log('✅ Both languages selected', 'green');
+        break;
+      default:
+        useEnglish = true;
+        useIndonesian = true;
+        log('⚠️  Invalid choice, defaulting to both languages', 'yellow');
+        break;
+    }
 
     log('\n📝 Updating configuration files...', 'blue');
 
@@ -85,6 +115,29 @@ async function setupTemplate() {
     siteContent = siteContent.replace(/email: ".*"/, `email: "${email}"`);
     
     fs.writeFileSync(sitePath, siteContent);
+
+    // Handle language files based on user choice
+    const enPath = path.join(projectRoot, 'src', 'data', 'en.json');
+    const idPath = path.join(projectRoot, 'src', 'data', 'id.json');
+    
+    if (useEnglish && !useIndonesian) {
+      // English only - remove Indonesian file
+      if (fs.existsSync(idPath)) {
+        fs.unlinkSync(idPath);
+        log('🗑️  Removed Indonesian language file', 'yellow');
+      }
+      log('✅ English language file kept', 'green');
+    } else if (useIndonesian && !useEnglish) {
+      // Indonesian only - remove English file
+      if (fs.existsSync(enPath)) {
+        fs.unlinkSync(enPath);
+        log('🗑️  Removed English language file', 'yellow');
+      }
+      log('✅ Indonesian language file kept', 'green');
+    } else {
+      // Both languages - keep both files
+      log('✅ Both language files kept', 'green');
+    }
 
     // Update package.json
     const packagePath = path.join(projectRoot, 'package.json');
