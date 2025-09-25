@@ -3,7 +3,7 @@
   "roles": ["Software Engineer", "Full Stack Developer", "Tech Lead"],
   "pitch": "John Doe adalah Software Engineer & Full Stack Developer dengan pengalaman 5+ tahun dalam pengembangan web, aplikasi mobile, dan teknologi cloud.",
   "about": "Saya bersemangat menciptakan solusi inovatif yang memecahkan masalah dunia nyata. Saya percaya teknologi harus mudah diakses dan ramah pengguna, membuat sistem kompleks menjadi sederhana dan intuitif.",
-  "cv": "/YourName_CV.pdf",
+  "cv": "/cv/johndoe_cv.pdf",
   "tools": [
     "JavaScript", "TypeScript", "React", "Node.js", "Python",
     "AWS", "Docker", "Git", "MongoDB", "PostgreSQL", "Redis"

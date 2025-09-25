@@ -31,7 +31,7 @@ export default function Hero() {
   const downloadCV = () => {
     const link = document.createElement('a');
     link.href = t('cv');
-    link.download = 'WahyuSuryaningrat_CV.pdf';
+    link.download = 'johndoe_cv.pdf';
     link.click();
   };
 

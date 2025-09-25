@@ -3,7 +3,7 @@
   "roles": ["Software Engineer", "Full Stack Developer", "Tech Lead"],
   "pitch": "John Doe is a Software Engineer & Full Stack Developer with 5+ years of experience in web development, mobile apps, and cloud technologies.",
   "about": "I'm passionate about creating innovative solutions that solve real-world problems. I believe technology should be accessible and user-friendly, making complex systems simple and intuitive.",
-  "cv": "/YourName_CV.pdf",
+  "cv": "/cv/johndoe_cv.pdf",
   "tools": [
     "JavaScript", "TypeScript", "React", "Node.js", "Python",
     "AWS", "Docker", "Git", "MongoDB", "PostgreSQL", "Redis"
