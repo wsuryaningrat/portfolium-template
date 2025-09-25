@@ -6,16 +6,19 @@ A modern, responsive portfolio template built with React, TypeScript, and Tailwi
 
 1. **Click "Use this template"** → Create new repository
 2. **Clone your repo**
-```console
+```bash
 git clone https://github.com/yourusername/your-repo.git
 ```
 3. **Run setup**
-```console
+```bash
 cd your-repo && ./quick-start.sh
 ```
 That's it! Your portfolio is ready at `http://localhost:5173`
 
-*Or manually: `npm install && npm run setup`*
+*Or manually: 
+```bash
+npm install && npm run setup
+```
 
 ## ✨ Features
 
