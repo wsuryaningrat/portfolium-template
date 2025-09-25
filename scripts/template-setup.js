@@ -1,8 +1,8 @@
 #!/usr/bin/env node
 
 /**
- * Portfolium Template Setup Script
- * This script helps users customize the template quickly
+ * Portfolio Template Setup Script
+ * Interactive setup for customizing the portfolio template
  */
 
 import fs from 'fs';
@@ -22,9 +22,12 @@ const colors = {
   green: '\x1b[32m',
   yellow: '\x1b[33m',
   blue: '\x1b[34m',
-  magenta: '\x1b[35m',
   cyan: '\x1b[36m'
 };
+
+function log(message, color = 'reset') {
+  console.log(`${colors[color]}${message}${colors.reset}`);
+}
 
 // Create readline interface
 const rl = readline.createInterface({
@@ -32,37 +35,30 @@ const rl = readline.createInterface({
   output: process.stdout
 });
 
-// Helper function to ask questions
 function askQuestion(question) {
   return new Promise((resolve) => {
-    rl.question(question, (answer) => {
-      resolve(answer);
-    });
+    rl.question(question, resolve);
   });
 }
 
-// Helper function to log with colors
-function log(message, color = 'reset') {
-  console.log(`${colors[color]}${message}${colors.reset}`);
-}
-
-// Main setup function
 async function setupTemplate() {
-  log('\n🎨 Portfolium Template Setup', 'cyan');
-  log('============================', 'cyan');
-  log('\nLet\'s customize your portfolio template!\n', 'yellow');
-
+  console.clear();
+  log('🎨 Portfolio Template Setup', 'cyan');
+  log('==========================\n', 'cyan');
+  
+  log('Welcome! This script will help you customize your portfolio template.\n', 'blue');
+  
   try {
-    // Get user information
-    const name = await askQuestion('What\'s your name? ');
-    const title = await askQuestion('What\'s your professional title? ');
-    const email = await askQuestion('What\'s your email? ');
-    const github = await askQuestion('What\'s your GitHub username? ');
-    const linkedin = await askQuestion('What\'s your LinkedIn username? ');
-    const website = await askQuestion('What\'s your website URL? ');
+    // Get basic information
+    log('📝 Basic Information', 'yellow');
+    const name = await askQuestion('Your name: ');
+    const title = await askQuestion('Your professional title: ');
+    const email = await askQuestion('Your email: ');
+    const github = await askQuestion('Your GitHub username: ');
+    const linkedin = await askQuestion('Your LinkedIn username (optional): ');
     
     // Language selection
-    log('\n🌐 Language Configuration', 'cyan');
+    log('\n🌐 Language Support', 'yellow');
     const languageChoice = await askQuestion('Choose language support:\n1. English only\n2. Indonesian only\n3. Both languages\nEnter choice (1-3): ');
     
     let useEnglish = false;
@@ -72,100 +68,86 @@ async function setupTemplate() {
       case '1':
         useEnglish = true;
         useIndonesian = false;
-        log('✅ English only selected', 'green');
         break;
       case '2':
         useEnglish = false;
         useIndonesian = true;
-        log('✅ Indonesian only selected', 'green');
         break;
       case '3':
         useEnglish = true;
         useIndonesian = true;
-        log('✅ Both languages selected', 'green');
         break;
       default:
         useEnglish = true;
         useIndonesian = true;
-        log('⚠️  Invalid choice, defaulting to both languages', 'yellow');
         break;
     }
-
-    log('\n📝 Updating configuration files...', 'blue');
-
+    
     // Update profile.json
+    log('\n📄 Updating profile data...', 'blue');
     const profilePath = path.join(projectRoot, 'src', 'data', 'profile.json');
     const profileData = JSON.parse(fs.readFileSync(profilePath, 'utf8'));
     
     profileData.name = name;
-    profileData.pitch = `${name} is a ${title} with expertise in modern web technologies and user experience design.`;
+    profileData.roles = [title];
+    profileData.contact.email = email;
+    profileData.contact.github = `https://github.com/${github}`;
+    if (linkedin) {
+      profileData.contact.linkedin = `https://www.linkedin.com/in/${linkedin}`;
+    }
     
     fs.writeFileSync(profilePath, JSON.stringify(profileData, null, 2));
-
-    // Update site.ts
-    const sitePath = path.join(projectRoot, 'src', 'config', 'site.ts');
-    let siteContent = fs.readFileSync(sitePath, 'utf8');
+    log('✅ Profile data updated', 'green');
     
-    siteContent = siteContent.replace(/name: ".*"/, `name: "${name}"`);
-    siteContent = siteContent.replace(/title: ".*"/, `title: "${title}"`);
-    siteContent = siteContent.replace(/description: ".*"/, `description: "Expert in web development, mobile applications, and cloud technologies."`);
-    siteContent = siteContent.replace(/url: ".*"/, `url: "${website}"`);
-    siteContent = siteContent.replace(/github: ".*"/, `github: "https://github.com/${github}"`);
-    siteContent = siteContent.replace(/linkedin: ".*"/, `linkedin: "https://www.linkedin.com/in/${linkedin}"`);
-    siteContent = siteContent.replace(/email: ".*"/, `email: "${email}"`);
+    // Update site config
+    const siteConfigPath = path.join(projectRoot, 'src', 'config', 'site.ts');
+    let siteConfig = fs.readFileSync(siteConfigPath, 'utf8');
     
-    fs.writeFileSync(sitePath, siteContent);
-
-    // Handle language files based on user choice
+    siteConfig = siteConfig.replace(/name: "Your Name"/, `name: "${name}"`);
+    siteConfig = siteConfig.replace(/title: "Your Title"/, `title: "${title}"`);
+    siteConfig = siteConfig.replace(/email: "your\.email@example\.com"/, `email: "${email}"`);
+    siteConfig = siteConfig.replace(/github: "https:\/\/github\.com\/yourusername"/, `github: "https://github.com/${github}"`);
+    
+    fs.writeFileSync(siteConfigPath, siteConfig);
+    log('✅ Site configuration updated', 'green');
+    
+    // Handle language files
     const enPath = path.join(projectRoot, 'src', 'data', 'en.json');
     const idPath = path.join(projectRoot, 'src', 'data', 'id.json');
     
     if (useEnglish && !useIndonesian) {
-      // English only - remove Indonesian file
       if (fs.existsSync(idPath)) {
         fs.unlinkSync(idPath);
         log('🗑️  Removed Indonesian language file', 'yellow');
       }
-      log('✅ English language file kept', 'green');
-      log('ℹ️  Language switcher will show but only English content available', 'blue');
     } else if (useIndonesian && !useEnglish) {
-      // Indonesian only - remove English file
       if (fs.existsSync(enPath)) {
         fs.unlinkSync(enPath);
         log('🗑️  Removed English language file', 'yellow');
       }
-      log('✅ Indonesian language file kept', 'green');
-      log('ℹ️  Language switcher will show but only Indonesian content available', 'blue');
-    } else {
-      // Both languages - keep both files
-      log('✅ Both language files kept', 'green');
-      log('ℹ️  Language switcher will work between English and Indonesian', 'blue');
     }
-
+    
     // Update package.json
     const packagePath = path.join(projectRoot, 'package.json');
     const packageData = JSON.parse(fs.readFileSync(packagePath, 'utf8'));
-    
-    packageData.name = `${name.toLowerCase().replace(/\s+/g, '-')}-portfolio`;
-    packageData.homepage = `${website}`;
-    
+    packageData.name = `${github}-portfolio`;
     fs.writeFileSync(packagePath, JSON.stringify(packageData, null, 2));
-
-    log('\n✅ Template setup complete!', 'green');
-    log('\n📋 Next steps:', 'yellow');
-    log('1. Replace images in public/ folder with your own', 'reset');
-    log('2. Update content in src/data/en.json and src/data/id.json', 'reset');
-    log('3. Run "npm run dev" to start development server', 'reset');
-    log('4. Run "npm run build" when ready to deploy', 'reset');
+    log('✅ Package.json updated', 'green');
     
-    log('\n🎉 Happy coding!', 'magenta');
-
+    log('\n🎉 Setup complete!', 'green');
+    log('\nNext steps:', 'cyan');
+    log('1. Replace placeholder images in public/ folder', 'blue');
+    log('2. Add your CV to public/cv/ folder', 'blue');
+    log('3. Customize content in src/data/ files', 'blue');
+    log('4. Run "npm run dev" to start development', 'blue');
+    log('5. Run "npm run build" to build for production', 'blue');
+    
   } catch (error) {
-    log(`\n❌ Error during setup: ${error.message}`, 'red');
+    log(`❌ Error: ${error.message}`, 'red');
   } finally {
     rl.close();
   }
 }
 
-// Run setup
+// Run the setup
 setupTemplate();

@@ -1,13 +1,13 @@
 {
-  "name": "Test User",
+  "name": "Your Name",
   "roles": [
     "Your Role 1",
     "Your Role 2",
     "Your Role 3"
   ],
-  "pitch": "Test User is a Software Developer with expertise in modern web technologies and user experience design.",
+  "pitch": "Your Name is a [Your Profession] with [X] years of experience in [your expertise areas]. Passionate about creating innovative solutions and delivering exceptional user experiences.",
   "about": "I'm passionate about creating innovative solutions that solve real-world problems. I believe technology should be accessible and user-friendly, making complex systems simple and intuitive. [Customize this section with your own story and values].",
-  "cv": "/cv/johndoe_cv.pdf",
+  "cv": "/cv/yourname_cv.pdf",
   "tools": [
     "JavaScript",
     "TypeScript",
