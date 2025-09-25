@@ -1,0 +1,114 @@
+#!/usr/bin/env node
+
+/**
+ * Portfolium Template Setup Script
+ * This script helps users customize the template quickly
+ */
+
+import fs from 'fs';
+import path from 'path';
+import { fileURLToPath } from 'url';
+import readline from 'readline';
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
+
+// Colors for console output
+const colors = {
+  reset: '\x1b[0m',
+  bright: '\x1b[1m',
+  red: '\x1b[31m',
+  green: '\x1b[32m',
+  yellow: '\x1b[33m',
+  blue: '\x1b[34m',
+  magenta: '\x1b[35m',
+  cyan: '\x1b[36m'
+};
+
+// Create readline interface
+const rl = readline.createInterface({
+  input: process.stdin,
+  output: process.stdout
+});
+
+// Helper function to ask questions
+function askQuestion(question) {
+  return new Promise((resolve) => {
+    rl.question(question, (answer) => {
+      resolve(answer);
+    });
+  });
+}
+
+// Helper function to log with colors
+function log(message, color = 'reset') {
+  console.log(`${colors[color]}${message}${colors.reset}`);
+}
+
+// Main setup function
+async function setupTemplate() {
+  log('\n🎨 Portfolium Template Setup', 'cyan');
+  log('============================', 'cyan');
+  log('\nLet\'s customize your portfolio template!\n', 'yellow');
+
+  try {
+    // Get user information
+    const name = await askQuestion('What\'s your name? ');
+    const title = await askQuestion('What\'s your professional title? ');
+    const email = await askQuestion('What\'s your email? ');
+    const github = await askQuestion('What\'s your GitHub username? ');
+    const linkedin = await askQuestion('What\'s your LinkedIn username? ');
+    const website = await askQuestion('What\'s your website URL? ');
+
+    log('\n📝 Updating configuration files...', 'blue');
+
+    // Update profile.json
+    const profilePath = path.join(__dirname, 'src', 'data', 'profile.json');
+    const profileData = JSON.parse(fs.readFileSync(profilePath, 'utf8'));
+    
+    profileData.name = name;
+    profileData.pitch = `${name} is a ${title} with expertise in modern web technologies and user experience design.`;
+    
+    fs.writeFileSync(profilePath, JSON.stringify(profileData, null, 2));
+
+    // Update site.ts
+    const sitePath = path.join(__dirname, 'src', 'config', 'site.ts');
+    let siteContent = fs.readFileSync(sitePath, 'utf8');
+    
+    siteContent = siteContent.replace(/name: ".*"/, `name: "${name}"`);
+    siteContent = siteContent.replace(/title: ".*"/, `title: "${title}"`);
+    siteContent = siteContent.replace(/description: ".*"/, `description: "Expert in web development, mobile applications, and cloud technologies."`);
+    siteContent = siteContent.replace(/url: ".*"/, `url: "${website}"`);
+    siteContent = siteContent.replace(/github: ".*"/, `github: "https://github.com/${github}"`);
+    siteContent = siteContent.replace(/linkedin: ".*"/, `linkedin: "https://www.linkedin.com/in/${linkedin}"`);
+    siteContent = siteContent.replace(/email: ".*"/, `email: "${email}"`);
+    
+    fs.writeFileSync(sitePath, siteContent);
+
+    // Update package.json
+    const packagePath = path.join(__dirname, 'package.json');
+    const packageData = JSON.parse(fs.readFileSync(packagePath, 'utf8'));
+    
+    packageData.name = `${name.toLowerCase().replace(/\s+/g, '-')}-portfolio`;
+    packageData.homepage = `${website}`;
+    
+    fs.writeFileSync(packagePath, JSON.stringify(packageData, null, 2));
+
+    log('\n✅ Template setup complete!', 'green');
+    log('\n📋 Next steps:', 'yellow');
+    log('1. Replace images in public/ folder with your own', 'reset');
+    log('2. Update content in src/data/en.json and src/data/id.json', 'reset');
+    log('3. Run "npm run dev" to start development server', 'reset');
+    log('4. Run "npm run build" when ready to deploy', 'reset');
+    
+    log('\n🎉 Happy coding!', 'magenta');
+
+  } catch (error) {
+    log(`\n❌ Error during setup: ${error.message}`, 'red');
+  } finally {
+    rl.close();
+  }
+}
+
+// Run setup
+setupTemplate();

@@ -1,6 +1,33 @@
 # Portfolium Template
 
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+[![React](https://img.shields.io/badge/React-18.2.0-blue.svg)](https://reactjs.org/)
+[![TypeScript](https://img.shields.io/badge/TypeScript-5.0.0-blue.svg)](https://www.typescriptlang.org/)
+[![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-3.3.0-38B2AC.svg)](https://tailwindcss.com/)
+[![Vite](https://img.shields.io/badge/Vite-4.5.0-646CFF.svg)](https://vitejs.dev/)
+
 A modern, responsive portfolio website template built with React, TypeScript, and Tailwind CSS. **Portfolium** combines "Portfolio" and "Premium" to deliver a professional, feature-rich template perfect for developers, designers, and professionals who want to showcase their work and skills.
+
+## 🚀 Quick Start
+
+```bash
+# Clone the template
+git clone https://github.com/wsuryaningrat/portfolium-template.git
+cd portfolium-template
+
+# Install dependencies
+npm install
+
+# Run interactive setup (recommended)
+npm run template-setup
+
+# Start development server
+npm run dev
+```
+
+## 📖 Template Documentation
+
+For detailed template documentation, see [TEMPLATE.md](./TEMPLATE.md)
 
 ## Features
 

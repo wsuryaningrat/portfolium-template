@@ -1,66 +1,66 @@
 {
-  "name": "John Doe",
-  "roles": ["Software Engineer", "Full Stack Developer", "Tech Lead"],
-  "pitch": "John Doe is a Software Engineer & Full Stack Developer with 5+ years of experience in web development, mobile apps, and cloud technologies.",
-  "about": "I'm passionate about creating innovative solutions that solve real-world problems. I believe technology should be accessible and user-friendly, making complex systems simple and intuitive.",
-  "cv": "/johndoe_cv.pdf",
+  "name": "Your Name",
+  "roles": ["Your Role 1", "Your Role 2", "Your Role 3"],
+  "pitch": "Your Name is a [Your Profession] with [X] years of experience in [your expertise areas]. Passionate about creating innovative solutions and delivering exceptional user experiences.",
+  "about": "I'm passionate about creating innovative solutions that solve real-world problems. I believe technology should be accessible and user-friendly, making complex systems simple and intuitive. [Customize this section with your own story and values].",
+  "cv": "/yourname_cv.pdf",
   "tools": [
     "JavaScript", "TypeScript", "React", "Node.js", "Python",
     "AWS", "Docker", "Git", "MongoDB", "PostgreSQL", "Redis"
   ],
   "workExperience": [
     {
-      "company": "Tech Solutions Inc.",
-      "position": "Senior Software Engineer",
-      "period": "2022 – 2025",
-      "description": "Led development of scalable web applications serving 100K+ users. Implemented microservices architecture and CI/CD pipelines, improving deployment efficiency by 70%.",
+      "company": "Company Name 1",
+      "position": "Your Position",
+      "period": "2022 – Present",
+      "description": "Brief description of your role and key achievements. Highlight your impact and responsibilities.",
       "logo": "/logos/company1.png"
     },
     {
-      "company": "StartupXYZ",
-      "position": "Full Stack Developer",
+      "company": "Company Name 2",
+      "position": "Previous Position",
       "period": "2020 – 2022",
-      "description": "Built end-to-end web applications using React and Node.js. Collaborated with cross-functional teams to deliver features on time and within budget.",
+      "description": "Describe your previous role and accomplishments. Focus on measurable results and skills gained.",
       "logo": "/logos/company2.png"
     },
     {
-      "company": "Digital Agency",
-      "position": "Frontend Developer",
+      "company": "Company Name 3",
+      "position": "Earlier Position",
       "period": "2019 – 2020",
-      "description": "Developed responsive web interfaces and mobile applications. Worked closely with designers to implement pixel-perfect UI/UX designs.",
+      "description": "Outline your earlier experience and how it contributed to your professional growth.",
       "logo": "/logos/company3.png"
     }
   ],
   "education": [
     {
-      "institution": "University of Technology",
-      "degree": "Bachelor of Computer Science",
+      "institution": "Your University",
+      "degree": "Your Degree",
       "period": "2015 – 2019",
-      "description": "Graduated with GPA 3.8/4.0. Specialized in software engineering, algorithms, and data structures.",
+      "description": "Brief description of your education, achievements, and relevant coursework or projects.",
       "logo": "/logos/university1.png"
     }
   ],
   "projects": [
     {
-      "title": "E-Commerce Platform",
-      "desc": "Full-stack e-commerce solution with payment integration, inventory management, and admin dashboard.",
-      "technologies": ["React", "Node.js", "MongoDB", "Stripe"],
-      "link": "#",
+      "title": "Project Name 1",
+      "desc": "Brief description of your project, its purpose, and key features. Highlight what makes it unique or impressive.",
+      "technologies": ["Technology 1", "Technology 2", "Technology 3"],
+      "link": "https://yourproject.com",
       "thumbnail": "/thumbnails/project1.gif"
     },
     {
-      "title": "Task Management App",
-      "desc": "Collaborative task management tool with real-time updates, team collaboration, and project tracking.",
-      "technologies": ["Vue.js", "Express", "Socket.io", "PostgreSQL"],
-      "link": "#",
-      "thumbnail": "/thumbnails/project2.jpg"
+      "title": "Project Name 2",
+      "desc": "Describe another project you're proud of. Focus on the problem it solves and your role in building it.",
+      "technologies": ["Technology 1", "Technology 2", "Technology 3"],
+      "link": "https://yourproject2.com",
+      "thumbnail": "/thumbnails/project2.gif"
     },
     {
-      "title": "Weather Dashboard",
-      "desc": "Real-time weather monitoring dashboard with data visualization and location-based forecasts.",
-      "technologies": ["React", "D3.js", "OpenWeather API", "Chart.js"],
-      "link": "#",
-      "thumbnail": "/thumbnails/project3.jpg"
+      "title": "Project Name 3",
+      "desc": "Showcase a third project that demonstrates your skills and interests. Include any notable achievements or learnings.",
+      "technologies": ["Technology 1", "Technology 2", "Technology 3"],
+      "link": "https://yourproject3.com",
+      "thumbnail": "/thumbnails/project3.gif"
     }
   ],
   "achievements": [
