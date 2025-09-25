@@ -1,0 +1,149 @@
+{
+  "name": "John Doe",
+  "roles": ["Software Engineer", "Full Stack Developer", "Tech Lead"],
+  "pitch": "John Doe is a Software Engineer & Full Stack Developer with 5+ years of experience in web development, mobile apps, and cloud technologies.",
+  "about": "I'm passionate about creating innovative solutions that solve real-world problems. I believe technology should be accessible and user-friendly, making complex systems simple and intuitive.",
+  "cv": "/YourName_CV.pdf",
+  "tools": [
+    "JavaScript", "TypeScript", "React", "Node.js", "Python",
+    "AWS", "Docker", "Git", "MongoDB", "PostgreSQL", "Redis"
+  ],
+  "workExperience": [
+    {
+      "company": "Tech Solutions Inc.",
+      "position": "Senior Software Engineer",
+      "period": "2022 – 2025",
+      "description": "Led development of scalable web applications serving 100K+ users. Implemented microservices architecture and CI/CD pipelines, improving deployment efficiency by 70%.",
+      "logo": "/logos/company1.png"
+    },
+    {
+      "company": "StartupXYZ",
+      "position": "Full Stack Developer",
+      "period": "2020 – 2022",
+      "description": "Built end-to-end web applications using React and Node.js. Collaborated with cross-functional teams to deliver features on time and within budget.",
+      "logo": "/logos/company2.png"
+    },
+    {
+      "company": "Digital Agency",
+      "position": "Frontend Developer",
+      "period": "2019 – 2020",
+      "description": "Developed responsive web interfaces and mobile applications. Worked closely with designers to implement pixel-perfect UI/UX designs.",
+      "logo": "/logos/company3.png"
+    }
+  ],
+  "education": [
+    {
+      "institution": "University of Technology",
+      "degree": "Bachelor of Computer Science",
+      "period": "2015 – 2019",
+      "description": "Graduated with GPA 3.8/4.0. Specialized in software engineering, algorithms, and data structures.",
+      "logo": "/logos/university1.png"
+    }
+  ],
+  "projects": [
+    {
+      "title": "E-Commerce Platform",
+      "desc": "Full-stack e-commerce solution with payment integration, inventory management, and admin dashboard.",
+      "technologies": ["React", "Node.js", "MongoDB", "Stripe"],
+      "website": "#",
+      "doc": "#",
+      "github": "#",
+      "thumbnail": "/thumbnails/project1.gif"
+    },
+    {
+      "title": "Task Management App",
+      "desc": "Collaborative task management tool with real-time updates, team collaboration, and project tracking.",
+      "technologies": ["Vue.js", "Express", "Socket.io", "PostgreSQL"],
+      "website": "#",
+      "doc": "#",
+      "github": "#",
+      "thumbnail": "/thumbnails/project2.gif"
+    },
+    {
+      "title": "Weather Dashboard",
+      "desc": "Real-time weather monitoring dashboard with data visualization and location-based forecasts.",
+      "technologies": ["React", "D3.js", "OpenWeather API", "Chart.js"],
+      "website": "#",
+      "doc": "#",
+      "github": "#",
+      "thumbnail": "/thumbnails/project3.gif"
+    }
+  ],
+  "achievements": [
+    {
+      "organizer": "Tech Conference 2023",
+      "title": "Best Innovation Award",
+      "date": "2023",
+      "description": "Awarded for developing an innovative solution that improved user engagement by 40%.",
+      "logo": "/logos/company1.png"
+    },
+    {
+      "organizer": "Hackathon 2022",
+      "title": "1st Place - Web Development",
+      "date": "2022",
+      "description": "Won first place in a 48-hour hackathon for building a social impact application.",
+      "logo": "/logos/company2.png"
+    },
+    {
+      "organizer": "University",
+      "title": "Dean's List",
+      "date": "2018-2019",
+      "description": "Recognized for academic excellence and outstanding performance in computer science program.",
+      "logo": "/logos/university1.png"
+    }
+  ],
+  "contact": {
+    "linkedin": "https://linkedin.com/in/johndoe",
+    "github": "https://github.com/johndoe",
+    "blog": "https://johndoe.dev",
+    "googleScholar": "https://scholar.google.com/citations?user=example",
+    "instagram": "https://www.instagram.com/johndoe"
+  },
+  "navigation": {
+    "home": "Home",
+    "about": "About",
+    "work": "Work",
+    "education": "Education",
+    "skills": "Skills",
+    "projects": "Projects",
+    "achievements": "Achievements",
+    "contact": "Contact"
+  },
+  "sections": {
+    "about": {
+      "title": "About Me",
+      "subtitle": "Software Engineer & Full Stack Developer",
+      "introText": "NA"
+    },
+    "work": {
+      "title": "Work Experience",
+      "subtitle": "Professional Journey",
+      "introText": "NA"
+    },
+    "education": {
+      "title": "Education",
+      "subtitle": "Academic Background",
+      "introText": "NA"
+    },
+    "skills": {
+      "title": "Skills & Tools",
+      "subtitle": "Technical Expertise",
+      "introText": "NA"
+    },
+    "projects": {
+      "title": "Projects",
+      "subtitle": "Featured Work",
+      "introText": "Here are some of my key projects that showcase my expertise in software development, web technologies, and cloud computing."
+    },
+    "achievements": {
+      "title": "Achievements",
+      "subtitle": "Awards & Recognition",
+      "introText": "Throughout my career, I have been recognized for my technical contributions and innovative solutions."
+    },
+    "contact": {
+      "title": "Get In Touch",
+      "subtitle": "Let's Connect",
+      "introText": "NA"
+    }
+  }
+}

@@ -1,0 +1,149 @@
+{
+  "name": "John Doe",
+  "roles": ["Software Engineer", "Full Stack Developer", "Tech Lead"],
+  "pitch": "John Doe adalah Software Engineer & Full Stack Developer dengan pengalaman 5+ tahun dalam pengembangan web, aplikasi mobile, dan teknologi cloud.",
+  "about": "Saya bersemangat menciptakan solusi inovatif yang memecahkan masalah dunia nyata. Saya percaya teknologi harus mudah diakses dan ramah pengguna, membuat sistem kompleks menjadi sederhana dan intuitif.",
+  "cv": "/YourName_CV.pdf",
+  "tools": [
+    "JavaScript", "TypeScript", "React", "Node.js", "Python",
+    "AWS", "Docker", "Git", "MongoDB", "PostgreSQL", "Redis"
+  ],
+  "workExperience": [
+    {
+      "company": "Tech Solutions Inc.",
+      "position": "Senior Software Engineer",
+      "period": "2022 – 2025",
+      "description": "Memimpin pengembangan aplikasi web yang dapat diskalakan untuk melayani 100K+ pengguna. Menerapkan arsitektur microservices dan pipeline CI/CD, meningkatkan efisiensi deployment hingga 70%.",
+      "logo": "/logos/company1.png"
+    },
+    {
+      "company": "StartupXYZ",
+      "position": "Full Stack Developer",
+      "period": "2020 – 2022",
+      "description": "Membangun aplikasi web end-to-end menggunakan React dan Node.js. Berkolaborasi dengan tim lintas fungsi untuk mengirimkan fitur tepat waktu dan sesuai anggaran.",
+      "logo": "/logos/company2.png"
+    },
+    {
+      "company": "Digital Agency",
+      "position": "Frontend Developer",
+      "period": "2019 – 2020",
+      "description": "Mengembangkan antarmuka web responsif dan aplikasi mobile. Bekerja sama dengan desainer untuk mengimplementasikan desain UI/UX yang sempurna.",
+      "logo": "/logos/company3.png"
+    }
+  ],
+  "education": [
+    {
+      "institution": "University of Technology",
+      "degree": "Sarjana Ilmu Komputer",
+      "period": "2015 – 2019",
+      "description": "Lulus dengan IPK 3.8/4.0. Spesialisasi dalam rekayasa perangkat lunak, algoritma, dan struktur data.",
+      "logo": "/logos/university1.png"
+    }
+  ],
+  "projects": [
+    {
+      "title": "Platform E-Commerce",
+      "desc": "Solusi e-commerce full-stack dengan integrasi pembayaran, manajemen inventori, dan dashboard admin.",
+      "technologies": ["React", "Node.js", "MongoDB", "Stripe"],
+      "website": "#",
+      "doc": "#",
+      "github": "#",
+      "thumbnail": "/thumbnails/project1.gif"
+    },
+    {
+      "title": "Aplikasi Manajemen Tugas",
+      "desc": "Alat manajemen tugas kolaboratif dengan update real-time, kolaborasi tim, dan pelacakan proyek.",
+      "technologies": ["Vue.js", "Express", "Socket.io", "PostgreSQL"],
+      "website": "#",
+      "doc": "#",
+      "github": "#",
+      "thumbnail": "/thumbnails/project2.gif"
+    },
+    {
+      "title": "Dashboard Cuaca",
+      "desc": "Dashboard monitoring cuaca real-time dengan visualisasi data dan prakiraan berbasis lokasi.",
+      "technologies": ["React", "D3.js", "OpenWeather API", "Chart.js"],
+      "website": "#",
+      "doc": "#",
+      "github": "#",
+      "thumbnail": "/thumbnails/project3.gif"
+    }
+  ],
+  "achievements": [
+    {
+      "organizer": "Tech Conference 2023",
+      "title": "Penghargaan Inovasi Terbaik",
+      "date": "2023",
+      "description": "Dianugerahi untuk mengembangkan solusi inovatif yang meningkatkan keterlibatan pengguna sebesar 40%.",
+      "logo": "/logos/company1.png"
+    },
+    {
+      "organizer": "Hackathon 2022",
+      "title": "Juara 1 - Web Development",
+      "date": "2022",
+      "description": "Juara 1 dalam hackathon 48 jam untuk membangun aplikasi dampak sosial.",
+      "logo": "/logos/company2.png"
+    },
+    {
+      "organizer": "University",
+      "title": "Dean's List",
+      "date": "2018-2019",
+      "description": "Diakui karena keunggulan akademik dan kinerja luar biasa dalam program ilmu komputer.",
+      "logo": "/logos/university1.png"
+    }
+  ],
+  "contact": {
+    "linkedin": "https://linkedin.com/in/johndoe",
+    "github": "https://github.com/johndoe",
+    "blog": "https://johndoe.dev",
+    "googleScholar": "https://scholar.google.com/citations?user=example",
+    "instagram": "https://www.instagram.com/johndoe"
+  },
+  "navigation": {
+    "home": "Beranda",
+    "about": "Tentang",
+    "work": "Pengalaman",
+    "education": "Pendidikan",
+    "skills": "Keahlian",
+    "projects": "Proyek",
+    "achievements": "Prestasi",
+    "contact": "Kontak"
+  },
+  "sections": {
+    "about": {
+      "title": "Tentang Saya",
+      "subtitle": "Software Engineer & Full Stack Developer",
+      "introText": "NA"
+    },
+    "work": {
+      "title": "Pengalaman Kerja",
+      "subtitle": "Perjalanan Profesional",
+      "introText": "NA"
+    },
+    "education": {
+      "title": "Pendidikan",
+      "subtitle": "Latar Belakang Akademik",
+      "introText": "NA"
+    },
+    "skills": {
+      "title": "Keahlian & Tools",
+      "subtitle": "Keahlian Teknis",
+      "introText": "NA"
+    },
+    "projects": {
+      "title": "Proyek",
+      "subtitle": "Karya Unggulan",
+      "introText": "Berikut adalah beberapa proyek utama yang menunjukkan keahlian saya dalam pengembangan perangkat lunak, teknologi web, dan komputasi awan."
+    },
+    "achievements": {
+      "title": "Prestasi",
+      "subtitle": "Penghargaan & Pengakuan",
+      "introText": "Sepanjang karier saya, saya telah diakui atas kontribusi teknis dan solusi inovatif saya."
+    },
+    "contact": {
+      "title": "Hubungi Saya",
+      "subtitle": "Mari Terhubung",
+      "introText": "NA"
+    }
+  }
+}
