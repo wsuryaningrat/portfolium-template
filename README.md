@@ -6,13 +6,17 @@
 [![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-3.3.0-38B2AC.svg)](https://tailwindcss.com/)
 [![Vite](https://img.shields.io/badge/Vite-4.5.0-646CFF.svg)](https://vitejs.dev/)
 
-A modern, responsive portfolio website template built with React, TypeScript, and Tailwind CSS. **Portfolium** combines "Portfolio" and "Premium" to deliver a professional, feature-rich template perfect for developers, designers, and professionals who want to showcase their work and skills.
+A modern, responsive portfolio website template built with React, TypeScript, and Tailwind CSS. Perfect for developers, designers, and professionals who want to showcase their work and skills.
 
-## 🚀 Quick Start
+## 🚀 Get Started
 
+### 1. Use This Template
+Click the **"Use this template"** button above to create your own repository from this template.
+
+### 2. Quick Setup
 ```bash
-# Clone the template
-git clone https://github.com/wsuryaningrat/portfolium-template.git
+# Clone your new repository
+git clone https://github.com/YOUR-USERNAME/portfolium-template.git
 cd portfolium-template
 
 # Install dependencies
@@ -21,13 +25,29 @@ npm install
 # Run interactive setup (recommended)
 npm run template-setup
 
-# Start development server
+# Start development
 npm run dev
 ```
 
-## 📖 Template Documentation
+### 3. Customize
+- Edit `src/data/profile.json` with your information
+- Replace images in `public/` folder
+- Update content in `src/data/en.json` and `src/data/id.json`
 
-For detailed template documentation, see [TEMPLATE.md](./TEMPLATE.md)
+## 📁 Project Structure
+
+```
+portfolium-template/
+├── config/                 # Template configuration
+├── scripts/               # Utility scripts
+├── src/
+│   ├── components/        # Reusable UI components
+│   ├── sections/         # Page sections
+│   ├── data/            # Content data files
+│   └── config/          # Site configuration
+├── public/              # Static assets
+└── docs/               # Documentation
+```
 
 ## Features
 

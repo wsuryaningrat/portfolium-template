@@ -12,6 +12,7 @@ import readline from 'readline';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
+const projectRoot = path.join(__dirname, '..');
 
 // Colors for console output
 const colors = {
@@ -63,7 +64,7 @@ async function setupTemplate() {
     log('\n📝 Updating configuration files...', 'blue');
 
     // Update profile.json
-    const profilePath = path.join(__dirname, 'src', 'data', 'profile.json');
+    const profilePath = path.join(projectRoot, 'src', 'data', 'profile.json');
     const profileData = JSON.parse(fs.readFileSync(profilePath, 'utf8'));
     
     profileData.name = name;
@@ -72,7 +73,7 @@ async function setupTemplate() {
     fs.writeFileSync(profilePath, JSON.stringify(profileData, null, 2));
 
     // Update site.ts
-    const sitePath = path.join(__dirname, 'src', 'config', 'site.ts');
+    const sitePath = path.join(projectRoot, 'src', 'config', 'site.ts');
     let siteContent = fs.readFileSync(sitePath, 'utf8');
     
     siteContent = siteContent.replace(/name: ".*"/, `name: "${name}"`);
@@ -86,7 +87,7 @@ async function setupTemplate() {
     fs.writeFileSync(sitePath, siteContent);
 
     // Update package.json
-    const packagePath = path.join(__dirname, 'package.json');
+    const packagePath = path.join(projectRoot, 'package.json');
     const packageData = JSON.parse(fs.readFileSync(packagePath, 'utf8'));
     
     packageData.name = `${name.toLowerCase().replace(/\s+/g, '-')}-portfolio`;

@@ -30,21 +30,25 @@ npm run dev
 
 ```
 portfolium-template/
+├── config/                 # Template configuration
+│   └── template.config.js  # Template metadata
+├── scripts/               # Utility scripts
+│   ├── setup.js          # Original setup script
+│   └── template-setup.js # Interactive setup script
 ├── src/
-│   ├── components/          # Reusable UI components
-│   ├── sections/           # Page sections (Hero, About, etc.)
-│   ├── data/              # Content data files
-│   │   ├── profile.json   # Main profile information
-│   │   ├── en.json        # English content
-│   │   └── id.json        # Indonesian content
-│   ├── config/            # Configuration files
-│   │   └── site.ts        # Site settings
-│   └── styles/            # Global styles
-├── public/                # Static assets
-│   ├── logos/            # Company/university logos
-│   ├── thumbnails/       # Project thumbnails
-│   └── profile.jpg       # Profile photo
-└── template.config.js    # Template configuration
+│   ├── components/        # Reusable UI components
+│   ├── sections/         # Page sections (Hero, About, etc.)
+│   ├── data/            # Content data files
+│   │   ├── profile.json  # Main profile information
+│   │   ├── en.json      # English content
+│   │   └── id.json      # Indonesian content
+│   ├── config/          # Site configuration
+│   │   └── site.ts      # Site settings
+│   └── styles/          # Global styles
+└── public/              # Static assets
+    ├── logos/          # Company/university logos
+    ├── thumbnails/     # Project thumbnails
+    └── profile.jpg     # Profile photo
 ```
 
 ## 🎨 Customization

@@ -5,8 +5,8 @@
   "homepage": "https://yourusername.github.io/portfolium-template/",
   "type": "module",
   "scripts": {
-    "setup": "node setup.js",
-    "template-setup": "node template-setup.js",
+    "setup": "node scripts/setup.js",
+    "template-setup": "node scripts/template-setup.js",
     "dev": "vite",
     "build": "vite build",
     "preview": "vite preview",
