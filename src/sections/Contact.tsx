@@ -26,7 +26,7 @@ export default function Contact() {
           viewport={{ once: true }}
         >
           <p className="text-lg text-gray-600 dark:text-gray-300 leading-relaxed">
-            {t('language') === 'id' ? 'Ingin ngobrol? Jangan ragu untuk menghubungi saya melalui' : 'Looking to chat? Feel free to reach out via'}{' '}
+            Looking to chat? Feel free to reach out via{' '}
             <a 
               href={site.social.linkedin}
               target="_blank"
@@ -35,7 +35,7 @@ export default function Contact() {
             >
               LinkedIn
             </a>
-            {' '}{t('language') === 'id' ? 'atau' : 'or'}{' '}
+            {' '}or{' '}
             <button
               onClick={handleEmailClick}
               className="text-gray-900 dark:text-white hover:text-gray-700 dark:hover:text-gray-300 font-medium transition-colors duration-200 underline decoration-dotted underline-offset-4 focus:outline-none focus:ring-2 focus:ring-gray-500 focus:ring-offset-2 rounded"
@@ -48,9 +48,9 @@ export default function Contact() {
                 }
               }}
             >
-              {t('language') === 'id' ? 'email' : 'email'}
+              email
             </button>
-            {' '}{t('language') === 'id' ? 'saya langsung dengan pertanyaan Anda — saya akan membalas secepatnya.' : 'me directly with your question — I\'ll get back when I can.'}
+            {' '}me directly with your question — I'll get back when I can.
           </p>
         </motion.div>
         

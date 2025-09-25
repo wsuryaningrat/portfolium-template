@@ -22,7 +22,7 @@ export default function About() {
             transition={{ duration: 0.6 }}
             viewport={{ once: true }}
           >
-            {t('language') === 'id' ? 'Tentang Saya' : 'About Me'}
+            About Me
           </motion.h2>
 
           {/* About Content - Always visible */}
