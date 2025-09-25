@@ -1,6 +1,6 @@
-# Portfolio Template
+# Portfolium Template
 
-A modern, responsive portfolio website template built with React, TypeScript, and Tailwind CSS. This template is perfect for developers, designers, and professionals who want to showcase their work and skills.
+A modern, responsive portfolio website template built with React, TypeScript, and Tailwind CSS. **Portfolium** combines "Portfolio" and "Premium" to deliver a professional, feature-rich template perfect for developers, designers, and professionals who want to showcase their work and skills.
 
 ## Features
 
@@ -32,8 +32,8 @@ A modern, responsive portfolio website template built with React, TypeScript, an
 
 1. Clone this repository:
 ```bash
-git clone https://github.com/yourusername/portfolio-template.git
-cd portfolio-template
+git clone https://github.com/yourusername/portfolium-template.git
+cd portfolium-template
 ```
 
 2. Install dependencies:
@@ -142,13 +142,13 @@ The portfolio includes the following sections:
 1. Update the `homepage` field in `package.json`:
 ```json
 {
-  "homepage": "https://yourusername.github.io/your-repo-name/"
+  "homepage": "https://yourusername.github.io/portfolium-template/"
 }
 ```
 
 2. Update the URL in `src/config/site.ts`:
 ```typescript
-url: "https://yourusername.github.io/your-repo-name/"
+url: "https://yourusername.github.io/portfolium-template/"
 ```
 
 3. Build and deploy:

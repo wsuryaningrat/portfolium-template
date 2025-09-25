@@ -3,7 +3,7 @@ export const site = {
   name: "John Doe",
   title: "Software Engineer, Full Stack Developer, and Tech Lead",
   description: "Expert in web development, mobile applications, and cloud technologies.",
-  url: "https://yourusername.github.io/your-repo-name/",
+  url: "https://yourusername.github.io/portfolium-template/",
   social: {
     blog: "https://yourblog.dev",
     github: "https://github.com/yourusername",

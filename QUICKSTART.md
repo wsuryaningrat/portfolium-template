@@ -5,8 +5,8 @@ Get your portfolio up and running in 5 minutes! 🚀
 ## Step 1: Clone and Install
 
 ```bash
-git clone https://github.com/yourusername/portfolio-template.git
-cd portfolio-template
+git clone https://github.com/yourusername/portfolium-template.git
+cd portfolium-template
 npm install
 ```
 
