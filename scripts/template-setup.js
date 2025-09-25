@@ -46,16 +46,15 @@ async function setupTemplate() {
   log('🎨 Portfolio Template Setup', 'cyan');
   log('==========================\n', 'cyan');
   
-  log('Welcome! This script will help you customize your portfolio template.\n', 'blue');
+  log('Welcome! This will take just 2 minutes to set up your portfolio.\n', 'blue');
   
   try {
     // Get basic information
-    log('📝 Basic Information', 'yellow');
+    log('📝 Basic Information (just 4 quick questions)', 'yellow');
     const name = await askQuestion('Your name: ');
-    const title = await askQuestion('Your professional title: ');
+    const title = await askQuestion('Your job title (e.g., "Software Developer"): ');
     const email = await askQuestion('Your email: ');
     const github = await askQuestion('Your GitHub username: ');
-    const linkedin = await askQuestion('Your LinkedIn username (optional): ');
     
     // Language selection
     log('\n🌐 Language Support', 'yellow');
@@ -92,9 +91,6 @@ async function setupTemplate() {
     profileData.roles = [title];
     profileData.contact.email = email;
     profileData.contact.github = `https://github.com/${github}`;
-    if (linkedin) {
-      profileData.contact.linkedin = `https://www.linkedin.com/in/${linkedin}`;
-    }
     
     fs.writeFileSync(profilePath, JSON.stringify(profileData, null, 2));
     log('✅ Profile data updated', 'green');
@@ -135,12 +131,11 @@ async function setupTemplate() {
     log('✅ Package.json updated', 'green');
     
     log('\n🎉 Setup complete!', 'green');
-    log('\nNext steps:', 'cyan');
-    log('1. Replace placeholder images in public/ folder', 'blue');
-    log('2. Add your CV to public/cv/ folder', 'blue');
-    log('3. Customize content in src/data/ files', 'blue');
-    log('4. Run "npm run dev" to start development', 'blue');
-    log('5. Run "npm run build" to build for production', 'blue');
+    log('\nNext steps (optional):', 'cyan');
+    log('1. Replace images in public/ folder with your own', 'blue');
+    log('2. Add your CV to public/cv/yourname_cv.pdf', 'blue');
+    log('3. Run "npm run dev" to see your portfolio!', 'blue');
+    log('4. Deploy to Vercel/Netlify when ready', 'blue');
     
   } catch (error) {
     log(`❌ Error: ${error.message}`, 'red');
