@@ -6,9 +6,11 @@ A modern, responsive portfolio template built with React, TypeScript, and Tailwi
 
 1. **Click "Use this template"** → Create new repository
 2. **Clone your repo** → `git clone https://github.com/yourusername/your-repo.git`
-3. **Run setup** → `cd your-repo && npm install && npm run setup`
+3. **Run setup** → `cd your-repo && ./quick-start.sh`
 
 That's it! Your portfolio is ready at `http://localhost:5173`
+
+*Or manually: `npm install && npm run setup`*
 
 ## ✨ Features
 
@@ -46,32 +48,7 @@ Edit content in `src/data/` files for your information.
 1. Push to GitHub
 2. Go to Settings → Pages
 3. Select "GitHub Actions"
-4. Add `.github/workflows/deploy.yml` (see below)
-
-## 📄 GitHub Pages Workflow
-
-Create `.github/workflows/deploy.yml`:
-
-```yaml
-name: Deploy to GitHub Pages
-on:
-  push:
-    branches: [ main ]
-jobs:
-  build-and-deploy:
-    runs-on: ubuntu-latest
-    steps:
-    - uses: actions/checkout@v4
-    - uses: actions/setup-node@v4
-      with:
-        node-version: '18'
-    - run: npm ci
-    - run: npm run build
-    - uses: peaceiris/actions-gh-pages@v3
-      with:
-        github_token: ${{ secrets.GITHUB_TOKEN }}
-        publish_dir: ./dist
-```
+4. See `docs/github-pages-setup.md` for workflow file
 
 ---
 
