@@ -1,10 +1,24 @@
 import { motion } from 'framer-motion';
-import { FileText, Github, Globe } from 'lucide-react';
+import { FileText, Github, Globe, ChevronLeft, ChevronRight } from 'lucide-react';
 import IntroText from '../components/IntroText';
 import { useLanguage } from '../contexts/LanguageContext';
+import { useRef } from 'react';
 
 export default function Projects() {
   const { t } = useLanguage();
+  const scrollContainerRef = useRef<HTMLDivElement>(null);
+  
+  const scrollLeft = () => {
+    if (scrollContainerRef.current) {
+      scrollContainerRef.current.scrollBy({ left: -296, behavior: 'smooth' });
+    }
+  };
+  
+  const scrollRight = () => {
+    if (scrollContainerRef.current) {
+      scrollContainerRef.current.scrollBy({ left: 296, behavior: 'smooth' });
+    }
+  };
   
   return (
     <section id="projects" className="section">
@@ -21,17 +35,36 @@ export default function Projects() {
           </h2>
           <IntroText sectionKey="projects" />
           
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-            {t('projects').map((project: any, index: number) => (
-              <motion.div
-                key={project.title}
-                className="bg-white dark:bg-gray-800 rounded-lg p-4 shadow-sm border border-gray-200 dark:border-gray-700 hover:shadow-md transition-shadow duration-200"
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: index * 0.1 }}
-                viewport={{ once: true }}
-                whileHover={{ scale: 1.02 }}
-              >
+          <div className="relative">
+            {/* Scroll Buttons */}
+            <button
+              onClick={scrollLeft}
+              className="absolute left-0 top-1/2 -translate-y-1/2 z-10 bg-white dark:bg-gray-800 shadow-lg rounded-full p-2 hover:bg-gray-50 dark:hover:bg-gray-700 transition-colors duration-200"
+              aria-label="Scroll left"
+            >
+              <ChevronLeft className="w-5 h-5 text-gray-600 dark:text-gray-300" />
+            </button>
+            
+            <button
+              onClick={scrollRight}
+              className="absolute right-0 top-1/2 -translate-y-1/2 z-10 bg-white dark:bg-gray-800 shadow-lg rounded-full p-2 hover:bg-gray-50 dark:hover:bg-gray-700 transition-colors duration-200"
+              aria-label="Scroll right"
+            >
+              <ChevronRight className="w-5 h-5 text-gray-600 dark:text-gray-300" />
+            </button>
+            
+            <div className="overflow-x-auto scrollbar-hide px-12" ref={scrollContainerRef}>
+              <div className="flex gap-4 pb-4" style={{ width: 'max-content' }}>
+              {t('projects').map((project: any, index: number) => (
+                <motion.div
+                  key={project.title}
+                  className="bg-white dark:bg-gray-800 rounded-lg p-4 shadow-sm border border-gray-200 dark:border-gray-700 hover:shadow-md transition-shadow duration-200 w-72 flex-shrink-0"
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.6, delay: index * 0.1 }}
+                  viewport={{ once: true }}
+                  whileHover={{ scale: 1.02 }}
+                >
                 <div className="space-y-3">
                   {/* Project Thumbnail */}
                   {project.thumbnail && (
@@ -78,7 +111,7 @@ export default function Projects() {
                         whileTap={{ scale: 0.95 }}
                       >
                         <Globe className="w-3 h-3" />
-                        {t('language') === 'id' ? 'Website' : 'Website'}
+                        Website
                       </motion.a>
                     )}
                     
@@ -92,7 +125,7 @@ export default function Projects() {
                         whileTap={{ scale: 0.95 }}
                       >
                         <FileText className="w-3 h-3" />
-                        {t('language') === 'id' ? 'Dokumentasi' : 'Docs'}
+                        Docs
                       </motion.a>
                     )}
                     
@@ -113,6 +146,8 @@ export default function Projects() {
                 </div>
               </motion.div>
             ))}
+              </div>
+            </div>
           </div>
         </motion.div>
       </div>

@@ -78,16 +78,16 @@ export default function Hero() {
               {/* Greeting and Role */}
               <div className="space-y-3 text-center">
                 <motion.h1 
-                  className="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-900 dark:text-gray-100 leading-tight"
+                  className="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-900 dark:text-gray-100 leading-tight text-center"
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.6, delay: 0.4 }}
                 >
                   <div className="flex flex-col sm:flex-row items-center justify-center gap-2">
-                    <span className="inline-block">
-                      {t('language') === 'id' ? 'Halo, saya seorang ' : 'Hi, I\'m a '}
+                    <span className="inline-block text-center">
+                      Hi, I'm a 
                     </span>
-                    <div className="inline-block min-w-0 max-w-xs sm:max-w-sm md:max-w-md lg:max-w-lg">
+                    <div className="inline-block min-w-0 max-w-xs sm:max-w-sm md:max-w-md lg:max-w-lg text-center">
                       <AnimatePresence mode="wait">
                         <motion.span 
                           key={roleIndex}
@@ -127,7 +127,7 @@ export default function Hero() {
                 variant="outline"
                 className="flex-1 inline-flex justify-center gap-2 whitespace-nowrap border-2 border-purple-600 text-purple-600 hover:bg-purple-600 hover:text-white bg-white dark:bg-gray-900 dark:border-purple-400 dark:text-purple-400 dark:hover:bg-purple-400 dark:hover:text-gray-900 transition-all duration-200 font-medium"
               >
-                {t('language') === 'id' ? 'Tentang' : 'About'}
+                About
               </Button>
               
               <Button
@@ -135,7 +135,7 @@ export default function Hero() {
                 variant="outline"
                 className="flex-1 inline-flex justify-center gap-2 whitespace-nowrap border-2 border-purple-600 text-purple-600 hover:bg-purple-600 hover:text-white bg-white dark:bg-gray-900 dark:border-purple-400 dark:text-purple-400 dark:hover:bg-purple-400 dark:hover:text-gray-900 transition-all duration-200 font-medium"
               >
-                {t('language') === 'id' ? 'Unduh CV' : 'Download CV'}
+                Download CV
                 <Download className="w-4 h-4" />
               </Button>
 
@@ -144,7 +144,7 @@ export default function Hero() {
                 variant="outline"
                 className="flex-1 inline-flex justify-center gap-2 whitespace-nowrap border-2 border-purple-600 text-purple-600 hover:bg-purple-600 hover:text-white bg-white dark:bg-gray-900 dark:border-purple-400 dark:text-purple-400 dark:hover:bg-purple-400 dark:hover:text-gray-900 transition-all duration-200 font-medium"
               >
-                {t('language') === 'id' ? 'Hubungi' : 'Contact'}
+                Contact
               </Button>
             </motion.div>
 
