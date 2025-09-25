@@ -1,7 +1,7 @@
 export const site = {
   showNavbar: false,
   name: "Test User",
-  title: "Developer",
+  title: "Software Developer",
   description: "Expert in web development, mobile applications, and cloud technologies.",
   url: "https://test.com",
   social: {
