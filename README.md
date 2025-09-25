@@ -24,10 +24,11 @@ npm install && npm run setup
 
 - 🎨 **Modern Design** - Clean and professional layout
 - 📱 **Responsive** - Works perfectly on all devices
-- 🌐 **Multi-language** - English & Indonesian support
 - 🌙 **Dark/Light Mode** - Smooth theme transitions
 - ⚡ **Fast Loading** - Built with Vite
 - 🎭 **Animations** - Framer Motion integration
+- 🖱️ **Interactive Elements** - Smooth hover effects and transitions
+- 📊 **Project Showcase** - Horizontal scrollable project gallery
 
 ## 🎨 Customize Your Portfolio
 
@@ -38,7 +39,25 @@ After running `npm run setup`, just replace these files:
 - **`public/logos/`** → Company logos
 - **`public/thumbnails/`** → Project images
 
-Edit content in `src/data/` files for your information.
+Edit content in `src/data/profile.json` for your information.
+
+### Key Sections to Customize:
+- **Hero Section**: Update name, roles, and pitch
+- **About**: Personal description (expandable via button)
+- **Work Experience**: Your professional history
+- **Education**: Academic background
+- **Skills**: Technologies and tools
+- **Projects**: Portfolio with horizontal scroll navigation
+- **Achievements**: Awards and recognitions
+- **Contact**: Your contact information
+
+## 🎯 New Interactive Features
+
+- **Expandable About Section**: Click "About" button to reveal personal description
+- **Horizontal Project Gallery**: Scroll through projects with arrow navigation
+- **Minimalist Button Design**: Clean outline buttons with smooth hover effects
+- **Hidden Scrollbars**: Clean horizontal scrolling without visible scrollbars
+- **Responsive Navigation**: Smooth scrolling between sections
 
 ## 🚀 Deploy (Choose One)
 
