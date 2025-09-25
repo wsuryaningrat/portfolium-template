@@ -1,12 +1,25 @@
 {
-  "name": "Your Name",
-  "roles": ["Your Role 1", "Your Role 2", "Your Role 3"],
-  "pitch": "Your Name is a [Your Profession] with [X] years of experience in [your expertise areas]. Passionate about creating innovative solutions and delivering exceptional user experiences.",
+  "name": "Test User",
+  "roles": [
+    "Your Role 1",
+    "Your Role 2",
+    "Your Role 3"
+  ],
+  "pitch": "Test User is a Developer with expertise in modern web technologies and user experience design.",
   "about": "I'm passionate about creating innovative solutions that solve real-world problems. I believe technology should be accessible and user-friendly, making complex systems simple and intuitive. [Customize this section with your own story and values].",
   "cv": "/yourname_cv.pdf",
   "tools": [
-    "JavaScript", "TypeScript", "React", "Node.js", "Python",
-    "AWS", "Docker", "Git", "MongoDB", "PostgreSQL", "Redis"
+    "JavaScript",
+    "TypeScript",
+    "React",
+    "Node.js",
+    "Python",
+    "AWS",
+    "Docker",
+    "Git",
+    "MongoDB",
+    "PostgreSQL",
+    "Redis"
   ],
   "workExperience": [
     {
@@ -44,21 +57,33 @@
     {
       "title": "Project Name 1",
       "desc": "Brief description of your project, its purpose, and key features. Highlight what makes it unique or impressive.",
-      "technologies": ["Technology 1", "Technology 2", "Technology 3"],
+      "technologies": [
+        "Technology 1",
+        "Technology 2",
+        "Technology 3"
+      ],
       "link": "https://yourproject.com",
       "thumbnail": "/thumbnails/project1.gif"
     },
     {
       "title": "Project Name 2",
       "desc": "Describe another project you're proud of. Focus on the problem it solves and your role in building it.",
-      "technologies": ["Technology 1", "Technology 2", "Technology 3"],
+      "technologies": [
+        "Technology 1",
+        "Technology 2",
+        "Technology 3"
+      ],
       "link": "https://yourproject2.com",
       "thumbnail": "/thumbnails/project2.gif"
     },
     {
       "title": "Project Name 3",
       "desc": "Showcase a third project that demonstrates your skills and interests. Include any notable achievements or learnings.",
-      "technologies": ["Technology 1", "Technology 2", "Technology 3"],
+      "technologies": [
+        "Technology 1",
+        "Technology 2",
+        "Technology 3"
+      ],
       "link": "https://yourproject3.com",
       "thumbnail": "/thumbnails/project3.gif"
     }

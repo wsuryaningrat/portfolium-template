@@ -1,8 +1,8 @@
 {
-  "name": "portfolium-template",
+  "name": "test-user-portfolio",
   "private": true,
   "version": "1.0.0",
-  "homepage": "https://yourusername.github.io/portfolium-template/",
+  "homepage": "https://test.com",
   "type": "module",
   "scripts": {
     "setup": "node scripts/setup.js",
