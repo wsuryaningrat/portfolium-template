@@ -43,6 +43,7 @@ npm run dev
 - 🎭 **Animations** - Framer Motion integration
 - 🔧 **Easy Setup** - Interactive configuration script
 - 📊 **SEO Ready** - Optimized for search engines
+- 🚀 **Multi-Platform Deploy** - GitHub Pages, Vercel, Netlify
 
 ## 🛠️ Tech Stack
 
@@ -78,10 +79,23 @@ npm run deploy
 - **Vercel**: Import your project
 - **Firebase Hosting**: Use Firebase CLI
 
+## 🚀 Quick Deploy
+
+Choose your preferred platform:
+
+| Platform | Difficulty | Speed | Best For |
+|----------|------------|-------|----------|
+| **GitHub Pages** | ⭐ Easy | ⭐⭐ Good | Templates, OSS |
+| **Vercel** | ⭐ Easy | ⭐⭐⭐ Excellent | Performance |
+| **Netlify** | ⭐ Easy | ⭐⭐ Good | Static sites |
+
+📖 **[Full Deployment Guide](docs/DEPLOYMENT.md)** - Detailed instructions for all platforms
+
 ## 📖 Documentation
 
 - [Template Guide](docs/TEMPLATE.md) - Detailed customization guide
 - [Quick Start](docs/QUICKSTART.md) - Quick setup instructions
+- [Deployment Guide](docs/DEPLOYMENT.md) - Multi-platform deployment
 
 ## 📄 License
 
