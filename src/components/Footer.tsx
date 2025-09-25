@@ -3,13 +3,12 @@ import { Github } from 'lucide-react';
 
 export default function Footer() {
   return (
-    <footer className="fixed bottom-20 right-4 z-30">
+    <footer className="fixed bottom-4 right-4 z-30">
       <motion.div
         className="bg-white/90 dark:bg-gray-900/90 backdrop-blur-md shadow-lg rounded-lg px-3 py-2 border border-gray-200/50 dark:border-gray-700/50"
         initial={{ opacity: 0, x: 20 }}
-        whileInView={{ opacity: 1, x: 0 }}
+        animate={{ opacity: 1, x: 0 }}
         transition={{ duration: 0.5 }}
-        viewport={{ once: true }}
       >
         <p className="text-xs text-gray-600 dark:text-gray-400">
           Template by{' '}
