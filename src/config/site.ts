@@ -3,7 +3,7 @@ export const site = {
   name: "Test User",
   title: "Software Developer",
   description: "Expert in web development, mobile applications, and cloud technologies.",
-  url: "https://test.com",
+  url: "https://wsuryaningrat.github.io/portfolium-template/",
   social: {
     blog: "https://yourblog.dev",
     github: "https://github.com/testuser",
