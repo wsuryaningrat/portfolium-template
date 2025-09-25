@@ -3,6 +3,7 @@ import { site } from './config/site';
 import { LanguageProvider } from './contexts/LanguageContext';
 import Navbar from './components/Navbar';
 import StickyPanel from './components/StickyPanel';
+import Footer from './components/Footer';
 import Hero from './sections/Hero';
 import Work from './sections/Work';
 import Education from './sections/Education';
@@ -54,6 +55,7 @@ function App() {
           <Contact />
         </main>
         
+        <Footer />
         <StickyPanel isDark={isDark} toggleTheme={toggleTheme} />
       </div>
     </LanguageProvider>
