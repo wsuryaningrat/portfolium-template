@@ -1,20 +1,4 @@
-import { createContext, useContext, useState, ReactNode } from 'react';
-
-// Try to import language files, handle cases where they might not exist
-let enTranslations: any = {};
-let idTranslations: any = {};
-
-try {
-  enTranslations = require('../data/en.json');
-} catch (error) {
-  console.log('English translations not found');
-}
-
-try {
-  idTranslations = require('../data/id.json');
-} catch (error) {
-  console.log('Indonesian translations not found');
-}
+import { createContext, useContext, useState, ReactNode, useEffect } from 'react';
 
 export type Language = 'en' | 'id';
 
@@ -32,39 +16,90 @@ interface LanguageProviderProps {
   children: ReactNode;
 }
 
-// Determine available languages based on what files exist
-const availableLanguages: Language[] = [];
-if (Object.keys(enTranslations).length > 0) availableLanguages.push('en');
-if (Object.keys(idTranslations).length > 0) availableLanguages.push('id');
-
-const translations = {
-  en: enTranslations,
-  id: idTranslations
+// Default empty translations
+const defaultTranslations = {
+  en: {},
+  id: {}
 };
 
+// Available languages - will be determined at runtime
+let availableLanguages: Language[] = ['en']; // Default to English
+let translations = { ...defaultTranslations };
+
 export function LanguageProvider({ children }: LanguageProviderProps) {
+  const [language, setLanguageState] = useState<Language>('en');
+  const [isLoading, setIsLoading] = useState(true);
+  const [loadedTranslations, setLoadedTranslations] = useState(translations);
+  const [loadedAvailableLanguages, setLoadedAvailableLanguages] = useState(availableLanguages);
+
+  // Load translations dynamically
+  useEffect(() => {
+    const loadTranslations = async () => {
+      const newTranslations = { ...defaultTranslations };
+      const newAvailableLanguages: Language[] = [];
+
+      // Try to load English translations
+      try {
+        const enModule = await import('../data/en.json');
+        newTranslations.en = enModule.default || enModule;
+        newAvailableLanguages.push('en');
+      } catch (error) {
+        console.log('English translations not found');
+      }
+
+      // Try to load Indonesian translations
+      try {
+        const idModule = await import('../data/id.json');
+        newTranslations.id = idModule.default || idModule;
+        newAvailableLanguages.push('id');
+      } catch (error) {
+        console.log('Indonesian translations not found');
+      }
+
+      // If no translations loaded, default to English
+      if (newAvailableLanguages.length === 0) {
+        newAvailableLanguages.push('en');
+      }
+
+      setLoadedTranslations(newTranslations);
+      setLoadedAvailableLanguages(newAvailableLanguages);
+      setIsLoading(false);
+
+      // Set default language
+      const saved = localStorage.getItem('language') as Language;
+      if (saved && newAvailableLanguages.includes(saved)) {
+        setLanguageState(saved);
+      } else {
+        setLanguageState(newAvailableLanguages[0]);
+      }
+    };
+
+    loadTranslations();
+  }, []);
+
   // Determine default language based on available languages
   const getDefaultLanguage = (): Language => {
     const saved = localStorage.getItem('language') as Language;
-    if (saved && availableLanguages.includes(saved)) {
+    if (saved && loadedAvailableLanguages.includes(saved)) {
       return saved;
     }
     // Return first available language, or 'en' as fallback
-    return availableLanguages.length > 0 ? availableLanguages[0] : 'en';
+    return loadedAvailableLanguages.length > 0 ? loadedAvailableLanguages[0] : 'en';
   };
 
-  const [language, setLanguageState] = useState<Language>(getDefaultLanguage);
-  const [isLoading] = useState(false);
-
   const setLanguage = (lang: Language) => {
-    if (availableLanguages.includes(lang)) {
+    if (loadedAvailableLanguages.includes(lang)) {
       setLanguageState(lang);
       localStorage.setItem('language', lang);
     }
   };
 
   const t = (key: string): any => {
-    const currentTranslations = translations[language];
+    if (isLoading) {
+      return key; // Return key while loading
+    }
+
+    const currentTranslations = loadedTranslations[language];
     if (!currentTranslations) return key;
     
     const keys = key.split('.');
@@ -86,7 +121,7 @@ export function LanguageProvider({ children }: LanguageProviderProps) {
     setLanguage,
     t,
     isLoading,
-    availableLanguages
+    availableLanguages: loadedAvailableLanguages
   };
 
   return (
